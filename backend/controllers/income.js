@@ -19,13 +19,13 @@ exports.addIncome = async (req, res) => {
     })
 
     try {
-        // 
+        // Validators
         if(!title || !category || !description || !date) {
             return res.status(400).json({
                 message: 'All fields are required'
             })
         }
-        //
+        // Validators
         if(amount <= 0 || !amount === 'number') {
             return res.status(400).json({
                 message: 'Amount must be a positive number'
@@ -37,4 +37,14 @@ exports.addIncome = async (req, res) => {
         res.status(500).json({message: 'Server Error'})
     }
     console.log(income)
+}
+
+// Find all incomes and will sort it by last created income.
+exports.getIncomes = async (req, res) => {
+    try {
+        const incomes = await IncomeSchema.find().sort({createdAt: -1})
+        res.status(200).json(incomes)
+    } catch (error) {
+        res.status(500).json({message: 'Server Error'})
+    }
 }
