@@ -4,7 +4,7 @@ import avatar from '../../img/avatar.png'
 import { menuItems } from '../../utils/MenuItems'
 import { signout } from '../../utils/Icons'
 
-const Navigation =()=> {
+function Navigation({active, setActive}) {
     return(
         <NavStyled>
             <div className = "user"> 
@@ -16,7 +16,12 @@ const Navigation =()=> {
             </div>
             <ul className = "menu-items">
                 {menuItems.map((item) => {
-                    return <li key = {item.id}>
+                    return <li 
+                        key = {item.id}
+                        onClick={() => setActive(item.id)}
+                        className={active === item.id ? 'active': ''}
+                        >
+                        
                         {item.icon}
                         <span>
                             {item.title}
@@ -34,7 +39,7 @@ const Navigation =()=> {
 }
 
 const NavStyled = styled.nav`
-padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem;
     width: 374px;
     height: 100%;
     background: rgba(252, 246, 249, 0.78);
@@ -45,6 +50,7 @@ padding: 2rem 1.5rem;
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
+
     .user{
         height: 100px;
         display: flex;
@@ -67,6 +73,7 @@ padding: 2rem 1.5rem;
             color: rgba(34, 34, 96, .6);
         }
     }
+
     .menu-items{
         flex: 1;
         display: flex;
@@ -87,6 +94,23 @@ padding: 2rem 1.5rem;
                 font-size: 1.4rem;
                 transition: all .4s ease-in-out;
             }
+        }
+    }
+
+    .active{
+        color: rgba(34, 34, 96, 1) !important;
+        i{
+            color: rgba(34, 34, 96, 1) !important;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #222260;
+            border-radius: 0 10px 10px 0;
         }
     }
 `;
