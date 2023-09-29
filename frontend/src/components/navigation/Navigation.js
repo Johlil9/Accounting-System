@@ -45,7 +45,7 @@ padding: 2rem 1.5rem;
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
-    .user-con{
+    .user{
         height: 100px;
         display: flex;
         align-items: center;

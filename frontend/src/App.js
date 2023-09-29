@@ -13,6 +13,7 @@ function App() {
 
 const AppStyled = styled.div`
   height: 100vh;
+  background-color: gray;
 `;
 
 export default App;
