@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import Navigation from './components/navigation/Navigation'
 import { MainLayout } from './styles/Layout'
 function App() {
   return (
     <AppStyled className = "App">
       <MainLayout>
-      <h1>Hellowe</h1>
+        <Navigation/>
       </MainLayout>
     </AppStyled>
   );
