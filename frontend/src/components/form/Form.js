@@ -12,7 +12,7 @@ function Form() {
         amount: '',
         date: '',
         category: '',
-        description: ''
+        description: '',
     })
 
     const { title, amount, date, category, description } = inputState
@@ -60,18 +60,19 @@ function Form() {
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Option</option>
                     <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
                     <option value="investments">Investiments</option>
                     <option value="stocks">Stocks</option>
-                    <option value="bitcoin">Bitcoin</option>
                     <option value="bank">Bank Transfer</option>  
-                    <option value="youtube">Youtube</option>  
                     <option value="other">Other</option>  
                 </select>
+            </div>
+            <div className="input-control">
+                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
                 <button>Add income</button>
             </div>
+            
         </FormStyled>
     )
 }
