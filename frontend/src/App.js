@@ -8,9 +8,14 @@ import Dashboard from './pages/Dashboard'
 import Income from './pages/Income'
 import Expenses from './pages/Expenses'
 
+import { useGlobalContext } from './context/globalContext'
+
 function App() {
   const [active, setActive] = useState(1)
   
+  const global = useGlobalContext()
+  console.log(global)
+
   const displayData = () => {
     switch(active){
       case 1:
@@ -55,4 +60,4 @@ const AppStyled = styled.div`
   }
 `;
 
-export default App;
+export default App
