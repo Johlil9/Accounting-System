@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Income from './pages/Income'
 import Expenses from './pages/Expenses'
 
-import { useGlobalContext } from './context/globalContext'
+import { useGlobalContext } from './context/GlobalContext'
 
 function App() {
   const [active, setActive] = useState(1)
