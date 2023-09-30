@@ -12,7 +12,7 @@ function Income() {
                 <h1>Incomes</h1>
                 <div className = "income-content">
                     <div className = "container">
-                        <div classaName = "income">
+                        <div className = "income">
                             <Form />
                         </div>
                     </div>
