@@ -22,6 +22,7 @@ function Income() {
                     <div className = "income">
                         {income.map((income) => {
                             const {_id, title, amount, date, category, description } = income
+                            
                         })}        
                     </div>
                 </div>
