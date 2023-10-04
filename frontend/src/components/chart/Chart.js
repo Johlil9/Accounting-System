@@ -10,6 +10,8 @@ import {Chart as ChartJs,
     Legend,
     ArcElement,
 } from 'chart.js'
+import {Line} from 'react-chartjs-2'
+import { useGlobalContext } from '../../context/GlobalContext'
 
 ChartJs.register(
     CategoryScale,
@@ -23,9 +25,13 @@ ChartJs.register(
 )
 
 function Chart() {
+    const {incomes, expenses} = useGlobalContext()
+
+   
+
     return (
         <ChartStyled>
-            Chart Test 
+         
         </ChartStyled>
     )
 }

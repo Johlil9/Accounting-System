@@ -6,7 +6,7 @@ import IncomeForm from '../components/form/IncomeForm'
 import IncomeItem from '../components/items/IncomeItem'
 
 function Income() {
-    const { addIncome, getIncome, income, deleteIncome, totalIncome  } = useGlobalContext()
+    const { getIncome, income, deleteIncome, totalIncome  } = useGlobalContext()
 
     useEffect(() => {
         getIncome()
