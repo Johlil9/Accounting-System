@@ -7,7 +7,7 @@ import AddIncomeBtn from '../button/AddIncomeBtn'
 import { plus } from '../../utils/Icons'
 
 function ExpenseForm() {
-    const { addExpense, getExpense} = useGlobalContext()
+    const { addExpense, getExpenses} = useGlobalContext()
 
     const [inputState, setInputState] = useState({
         title: '',
@@ -26,7 +26,7 @@ function ExpenseForm() {
     const handleSubmit = e => {
         e.preventDefault()
         addExpense(inputState)
-        getExpense()
+        getExpenses()
     }
 
     return (

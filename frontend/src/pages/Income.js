@@ -5,7 +5,6 @@ import { useGlobalContext } from '../context/GlobalContext'
 import IncomeForm from '../components/form/IncomeForm'
 import IncomeItem from '../components/items/IncomeItem'
 
-
 function Income() {
     const { addIncome, getIncome, income, deleteIncome, totalIncome  } = useGlobalContext()
 
