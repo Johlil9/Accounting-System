@@ -1,8 +1,8 @@
 import React from 'react'   
 import styled from 'styled-components'
-
-import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
-import AddIncomeBtn from '../button/AddIncomeBtn';
+import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons'
+import AddIncomeBtn from '../button/AddIncomeBtn'
+import { dateFormat } from '../../utils/dateFormat'
 
 function IncomeItem({
     id,
@@ -19,21 +19,21 @@ function IncomeItem({
     const categoryIcon = () =>{
         switch(category) {
             case 'salary':
-                return money;
+                return money
             case 'freelancing':
                 return freelance
             case 'investments':
-                return stocks;
+                return stocks
             case 'stocks':
-                return users;
+                return users
             case 'bitcoin':
-                return bitcoin;
+                return bitcoin
             case 'bank':
-                return card;
+                return card
             case 'youtube':
-                return yt;
+                return yt
             case 'other':
-                return piggy;
+                return piggy
             default:
                 return ''
         }
@@ -42,21 +42,21 @@ function IncomeItem({
     const expenseCatIcon = () => {
         switch (category) {
             case 'education':
-                return book;
+                return book
             case 'groceries':
-                return food;
+                return food
             case 'health':
-                return medical;
+                return medical
             case 'subscriptions':
-                return tv;
+                return tv
             case 'takeaways':
-                return takeaway;
+                return takeaway
             case 'clothing':
-                return clothing;
+                return clothing
             case 'travelling':
-                return freelance;
+                return freelance
             case 'other':
-                return circle;
+                return circle
             default:
                 return ''
         }
@@ -74,7 +74,7 @@ function IncomeItem({
                 <div className="inner-content">
                     <div className="text">
                         <p>{dollar} {amount}</p>
-                        
+                        <p>{calender} {dateFormat(date)}</p>
                         <p>
                             {comment}
                             {description}
