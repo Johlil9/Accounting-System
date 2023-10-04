@@ -30,7 +30,7 @@ function IncomeForm() {
     }
 
     return (
-        <FormStyled onSubmit = {handleSubmit}>
+        <IncomeFormStyled onSubmit = {handleSubmit}>
             <div className = "input-control">
                 <input 
                     type = "text"
@@ -83,11 +83,11 @@ function IncomeForm() {
                     />
             </div>
             
-        </FormStyled>
+        </IncomeFormStyled>
     )
 }
 
-const FormStyled = styled.form`
+const IncomeFormStyled = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2rem;
