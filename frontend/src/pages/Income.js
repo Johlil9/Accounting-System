@@ -23,7 +23,7 @@ function Income() {
                     </div>
                     <div className = "income">
                         {income.map((income) => {
-                            const {_id, title, amount, date, category, description } = income
+                            const {_id, title, amount, date, category, description, type } = income
                             return <IncomeItem 
                             key={_id}
                             id={_id} 
@@ -34,7 +34,7 @@ function Income() {
                             deleteItem={deleteIncome}
                             category={category} 
                             indicatorColor="var(--color-green)"
-                            
+                            type={type}
                             />
                         })}        
                     </div>
