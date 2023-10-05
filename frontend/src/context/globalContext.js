@@ -15,14 +15,14 @@ export const GlobalProvider = ({children}) => {
             .catch((err) => {
                 setError(err.response.data.message)
             })
-        console.log(response.data)
+        //console.log(response.data)
            
     }
 
     const getIncome = async () => {
         const response = await axios.get(`${BASE_URL}get-incomes`)
         setIncome(response.data)
-        console.log(response.data)
+        //console.log(response.data)
     }
 
     const deleteIncome = async (id) => {
@@ -41,18 +41,32 @@ export const GlobalProvider = ({children}) => {
 
     //console.log("Total income: " + totalIncome())
     
-    const getExpenses = async (expenses) => {
-        const response = await axios.get(`${BASE_URL}get-expenses`)
-        setExpenses(response.data)
-        console.log(response.data)
-    }
-
-    const addExpense = async (expenses) => {
-        const response = await axios.post(`${BASE_URL}add-expense`, expenses)
-            .catch((err) => {
+    const addExpense = async (income) => {
+        const response = await axios.post(`${BASE_URL}add-expense`, income)
+            .catch((err) =>{
                 setError(err.response.data.message)
             })
-            console.log(response.data)
+        getExpenses()
+    }
+
+    const getExpenses = async () => {
+        const response = await axios.get(`${BASE_URL}get-expenses`)
+        setExpenses(response.data)
+        //console.log(response.data)
+    }
+
+    const deleteExpense = async (id) => {
+        const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
+        getExpenses()
+    }
+
+    const totalExpenses = () => {
+        let totalIncome = 0;
+        expenses.forEach((income) =>{
+            totalIncome = totalIncome + income.amount
+        })
+
+        return totalIncome;
     }
 
 
@@ -65,6 +79,8 @@ export const GlobalProvider = ({children}) => {
             totalIncome, 
             addExpense,
             getExpenses,
+            deleteExpense,
+            totalExpenses,
             expenses, 
             error
         }}>
