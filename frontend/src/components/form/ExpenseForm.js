@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { useGlobalContext } from '../../context/GlobalContext'
-import AddIncomeBtn from '../button/AddIncomeBtn'
+import Button from '../button/Button'
 import { plus } from '../../utils/Icons'
 
 function ExpenseForm() {
-    const { addExpense, error  } = useGlobalContext()
+    const { addExpense, error, setError  } = useGlobalContext()
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -20,6 +20,7 @@ function ExpenseForm() {
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
+        setError('')
     }
 
     const handleSubmit = e => {
@@ -82,7 +83,7 @@ function ExpenseForm() {
                 <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange = {handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-                <AddIncomeBtn 
+                <Button 
                         name={'Add Expense'}
                         icon={plus}
                         bPad={'.8rem 1.6rem'}

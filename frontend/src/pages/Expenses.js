@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { InnerLayout } from '../styles/Layout'
 import { useGlobalContext } from '../context/GlobalContext'
-import IncomeItem from '../components/items/IncomeItem'
 import ExpenseForm from '../components/form/ExpenseForm'
+import ExpenseItems from '../components/items/ExpenseItems'
 
-function Expenses() {
+export default function Expenses() {
     const {expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
     useEffect(() =>{
@@ -23,9 +23,8 @@ function Expenses() {
                     </div>
                     <div className="incomes">
                         {expenses.map((income) => {
-                            const {_id, title, amount, date, category, description, type} = income;
-                            console.log(income)
-                            return <IncomeItem
+                            const {_id, title, amount, date, category, description, type} = income
+                            return <ExpenseItems
                                 key={_id}
                                 id={_id} 
                                 title={title} 
@@ -74,5 +73,3 @@ const ExpenseStyled = styled.div`
         }
     }
 `;
-
-export default Expenses

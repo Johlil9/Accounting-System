@@ -1,7 +1,11 @@
 import React from 'react'   
 import styled from 'styled-components'
-import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons'
-import AddIncomeBtn from '../button/AddIncomeBtn'
+import { bitcoin, calender, card, 
+         comment, dollar, freelance,  
+         money, piggy, stocks, trash, 
+         users, yt 
+} from '../../utils/Icons'
+import Buttom from '../button/Button'
 import DateFormat from '../../utils/DateFormat'
 
 function IncomeItem({
@@ -13,61 +17,34 @@ function IncomeItem({
     description,
     deleteItem,
     indicatorColor,
-    type
 }) {
 
     const categoryIcon = () =>{
         switch(category) {
             case 'salary':
-                return money
+                return money;
             case 'freelancing':
                 return freelance
             case 'investments':
-                return stocks
+                return stocks;
             case 'stocks':
-                return users
+                return users;
             case 'bitcoin':
-                return bitcoin
+                return bitcoin;
             case 'bank':
-                return card
+                return card;
             case 'youtube':
-                return yt
+                return yt;
             case 'other':
-                return piggy
+                return piggy;
             default:
                 return ''
         }
     }
-
-    const expenseCatIcon = () => {
-        switch (category) {
-            case 'education':
-                return book
-            case 'groceries':
-                return food
-            case 'health':
-                return medical
-            case 'subscriptions':
-                return tv
-            case 'takeaways':
-                return takeaway
-            case 'clothing':
-                return clothing
-            case 'travelling':
-                return freelance
-            case 'other':
-                return circle
-            default:
-                return ''
-        }
-    }
-
-    console.log('type', type)
-
     return (
         <IncomeItemStyled $indicator={indicatorColor}>
             <div className="icon">
-                {type === 'expense' ? expenseCatIcon() : categoryIcon()}
+                {categoryIcon()}
             </div>
             <div className="content">
                 <h5>{title}</h5>
@@ -81,7 +58,7 @@ function IncomeItem({
                         </p>
                     </div>
                     <div className="btn-con">
-                        <AddIncomeBtn
+                        <Buttom
                             icon={trash}
                             bPad={'1rem'}
                             bRad={'50%'}

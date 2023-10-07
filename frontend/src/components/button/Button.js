@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function AddIncomeBtn({ name, icon, onClick, bg, bPad, color, bRad }) {
+function Button({ name, icon, onClick, bg, bPad, color, bRad }) {
     return(
         <ButtonStyled style={{
             background: bg,
@@ -27,4 +27,4 @@ const ButtonStyled = styled.button`
     transition: all .4s ease-in-out;
 `;
 
-export default AddIncomeBtn
+export default Button

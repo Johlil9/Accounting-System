@@ -4,6 +4,7 @@ import { InnerLayout } from '../styles/Layout'
 import Chart from '../components/chart/Chart'
 import { useGlobalContext } from '../context/GlobalContext'
 import History from '../components/history/History'
+
 function Dashboard() {
     const {income, expenses, totalIncome, totalBalance, totalExpenses, getIncome, getExpenses} = useGlobalContext()
 
@@ -42,7 +43,7 @@ function Dashboard() {
                     </div>
                     <div className="history-con">
                         <History/>
-                    <h2 className="salary-title">Min <span>Salary</span>Max</h2>
+                        <h2 className="salary-title">Min <span>Salary</span>Max</h2>
                         <div className="salary-item">
                             <p>
                                 ${Math.min(...income.map(item => item.amount))}
