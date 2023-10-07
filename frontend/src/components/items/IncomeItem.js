@@ -65,7 +65,7 @@ function IncomeItem({
     console.log('type', type)
 
     return (
-        <IncomeItemStyled indicator={indicatorColor}>
+        <IncomeItemStyled $indicator={indicatorColor}>
             <div className="icon">
                 {type === 'expense' ? expenseCatIcon() : categoryIcon()}
             </div>
@@ -142,7 +142,8 @@ const IncomeItemStyled = styled.div`
                 width: .8rem;
                 height: .8rem;
                 border-radius: 50%;
-                background: ${props => props.indicator};
+                background: ${props => props.$indicator};
+
             }
         }
 
