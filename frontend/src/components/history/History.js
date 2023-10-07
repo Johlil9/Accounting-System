@@ -1,9 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/GlobalContext'
 
-
-function History () {
+export default function History () {
     const {transactionHistory} = useGlobalContext()
     const [...history] = transactionHistory()
 
@@ -48,5 +46,3 @@ const HistoryStyled = styled.div`
         justify-content: space-between;
         align-items: center;
 `
-
-export default History
