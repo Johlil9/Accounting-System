@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import axios from 'axios'
 
 const BASE_URL = "http://localhost:5000/api/v1/";
@@ -16,11 +16,10 @@ export const GlobalProvider = ({children}) => {
                 setError(err.response.data.message)
             })
         console.log(response.data)
-           
     }
 
     const getIncome = async () => {
-        const response = await axios.get(`${BASE_URL}get-incomes`)
+        const response = await axios.get(`${BASE_URL}get-incomes`, income)
         setIncome(response.data)
         console.log(response.data)
     }
