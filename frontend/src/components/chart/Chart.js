@@ -12,6 +12,7 @@ import {Chart as ChartJs,
 } from 'chart.js'
 import {Line} from 'react-chartjs-2'
 import { useGlobalContext } from '../../context/Context'
+
 import DateFormat from '../../utils/DateFormat'
 
 ChartJs.register(
