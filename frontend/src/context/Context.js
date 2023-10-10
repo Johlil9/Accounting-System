@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const BASE_URL = "http://localhost:5000/api/v1/";
 
-const GlobalContext = React.createContext()
+const Context = React.createContext()
 
 export const GlobalProvider = ({children}) => {
     const [income, setIncome] = useState([])
@@ -83,7 +83,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     return (
-        <GlobalContext.Provider value ={{ 
+        <Context.Provider value ={{ 
             addIncome, 
             getIncome, 
             income, 
@@ -100,10 +100,10 @@ export const GlobalProvider = ({children}) => {
             transactionHistory,
         }}>
             {children}
-        </GlobalContext.Provider>
+        </Context.Provider>
     )
 }
 
 export const useGlobalContext = () => {
-    return useContext(GlobalContext)
+    return useContext(Context)
 }

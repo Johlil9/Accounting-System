@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { InnerLayout } from '../styles/Layout'
 import Chart from '../components/chart/Chart'
-import { useGlobalContext } from '../context/GlobalContext'
+import { useGlobalContext } from '../context/Context'
 import History from '../components/history/History'
 
 function Dashboard() {

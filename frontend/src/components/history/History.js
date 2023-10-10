@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useGlobalContext } from '../../context/GlobalContext'
+import { useGlobalContext } from '../../context/Context'
 
 export default function History () {
     const {transactionHistory} = useGlobalContext()

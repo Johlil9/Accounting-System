@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { InnerLayout } from '../styles/Layout'
-import { useGlobalContext } from '../context/GlobalContext'
+import { useGlobalContext } from '../context/Context'
 import IncomeForm from '../components/form/IncomeForm'
 import IncomeItem from '../components/items/IncomeItem'
 

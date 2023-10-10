@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
-import { useGlobalContext } from '../../context/GlobalContext'
+import { useGlobalContext } from '../../context/Context'
 import Button from '../button/Button'
 import { plus } from '../../utils/Icons'
 
