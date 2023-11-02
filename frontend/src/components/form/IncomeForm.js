@@ -7,7 +7,8 @@ import Button from '../button/Button'
 import { plus } from '../../utils/Icons'
 
 function IncomeForm() {
-    const {addIncome, getIncome} = useGlobalContext()
+    const {addIncome, error, setError, getIncome} = useGlobalContext()
+    const [focusedInput, setFocusedInput] = useState(null);
 
     const [inputState, setInputState] = useState({
         title: '',
@@ -20,7 +21,9 @@ function IncomeForm() {
     const { title, amount, date, category, description } = inputState
 
     const handleInput = name => e => {
-        setInputState({...inputState, [name]: e.target.value})
+        setInputState({...inputState, [name]: e.target.value});
+        setError('')
+        setFocusedInput(name);
     }
 
     const handleSubmit = e => {
@@ -31,25 +34,23 @@ function IncomeForm() {
 
     return (
         <IncomeFormStyled onSubmit = {handleSubmit}>
-            <div className = "input-control">
+             {error && <p className='error'>{error}</p>}
+            <div className="input-control">
                 <input 
-                    type = "text"
-                    value = {title}
-                    name = {'title'}
-                    placeholder = "Income"
-                    onChange = {handleInput('title')} 
+                    type="text" 
+                    value={title}
+                    name={'title'} 
+                    placeholder="Salary Title"
+                    onChange={handleInput('title')}
                 />
             </div>
             <div className="input-control">
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'$0'}
+                    placeholder={'Salary Amount'}
                     onChange={handleInput('amount')} 
                 />
-            </div>
-            <div className="input-control">
-                <textarea name="description" value={description} placeholder='Description' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="input-control">
                 <DatePicker 
@@ -62,30 +63,31 @@ function IncomeForm() {
                     }}
                 />
             </div>
-            
-            <div className="input-control"> 
+            <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                        <option value=""  disabled >Select Option</option>
-                        <option value="salary">Salary</option>
-                        <option value="freelancing">Freelancing</option>
-                        <option value="investments">Investiments</option>
-                        <option value="stocks">Stocks</option>
-                        <option value="bitcoin">Bitcoin</option>
-                        <option value="bank">Bank Transfer</option>  
-                        <option value="youtube">Youtube</option>  
-                        <option value="other">Other</option>   
-                    </select>
+                    <option value=""  disabled >Select Option</option>
+                    <option value="salary">Salary</option>
+                    <option value="freelancing">Freelancing</option>
+                    <option value="investments">Investiments</option>
+                    <option value="stocks">Stocks</option>
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="bank">Bank Transfer</option>  
+                    <option value="youtube">Youtube</option>  
+                    <option value="other">Other</option>  
+                </select>
             </div>
-
+            <div className="input-control">
+                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
+            </div>
             <div className="submit-btn">
                 <Button 
-                        name={'Add Income'}
-                        icon={plus}
-                        bPad={'.8rem 1.6rem'}
-                        bRad={'30px'}
-                        bg={'var(--color-accent'}
-                        color={'#fff'}
-                    />
+                    name={'Add Income'}
+                    icon={plus}
+                    bPad={'.8rem 1.6rem'}
+                    bRad={'30px'}
+                    bg={'var(--color-accent'}
+                    color={'#fff'}
+                />
             </div>
         </IncomeFormStyled>
     )
@@ -112,11 +114,33 @@ const IncomeFormStyled = styled.form`
         }
     }
     .input-control{
+        position: relative;
         input{
             width: 100%;
+            &::placeholder {
+                transition: all 0.3s;
+                opacity: 0; 
+            }
+        }
+        label {
+            position: absolute;
+            top: 10px; /* Adjust based on your styling */
+            left: 15px; /* Adjust based on your styling */
+            font-size: 1rem;
+            transition: all 0.3s;
+            pointer-events: none;
         }
     }
-
+    .input-control[data-input="title"] label {
+        transform: translateY(-25px); /* Adjust based on your styling */
+        font-size: 0.8rem;
+        color: rgba(34, 34, 96, 0.4);
+    }
+    
+    .input-control[data-input="title"] input:focus::placeholder,
+    .input-control[data-input="title"] input:not(:placeholder-shown)::placeholder {
+        opacity: 1;
+    }
     .selects{
         display: flex;
         justify-content: flex-end;
