@@ -75,19 +75,19 @@ const DashboardStyled = styled.div`
 
 .amount-con{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* three equal columns */
-    gap: 2rem; /* keeps your current gap */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
     margin-bottom: 2rem;
-    .income, .expense, .balance{ /* styling applied to all three, no need for grid-column span */
+    .income, .expense, .balance{ 
         background: #FCF6F9;
         border: 2px solid #FFFFFF;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         border-radius: 20px;
         padding: 1rem;
-        display: flex; /* This will help center the content */
-        flex-direction: column; /* Aligns items vertically */
-        justify-content: center; /* Centers content vertically */
-        align-items: center; /* Centers content horizontally */
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
         p{
             font-size: 3.5rem;
             font-weight: 700;
@@ -108,9 +108,8 @@ const DashboardStyled = styled.div`
         grid-template-columns: repeat(5, 1fr);
         gap: 2rem;
         .chart-con{
-            grid-column: 1 / 4; /* This will make chart-con take up the first 4 columns */
+            grid-column: 1 / 4; 
             height: 400px;
-            /* Rest of your styling */
         }
         .history-con{
             grid-column: 4 / 6;
@@ -142,6 +141,36 @@ const DashboardStyled = styled.div`
             }
         }
     }
+    @media (max-width: 768px) {
+    .amount-con {
+        grid-template-columns: 1fr;
+        margin-bottom: 1rem;
+        
+        .income, .expense, .balance {
+            margin-bottom: 1rem; 
+            padding: 0.5rem; 
+            
+            p {
+                font-size: 2rem; 
+                font-weight: 600; 
+            }
+        }
+
+        .balance p {
+            font-size: 2.5rem; 
+        }
+    }
+}
+
+.stats-con {
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; 
+        
+        .chart-con, .history-con {
+            grid-column: 1 / -1; 
+        }
+    }
+}
 `;
 
 export default Dashboard
