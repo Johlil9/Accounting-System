@@ -110,6 +110,7 @@ const DashboardStyled = styled.div`
         .chart-con{
             grid-column: 1 / 4; 
             height: 400px;
+            
         }
         .history-con{
             grid-column: 4 / 6;
@@ -141,7 +142,7 @@ const DashboardStyled = styled.div`
             }
         }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
     .amount-con {
         grid-template-columns: 1fr;
         margin-bottom: 1rem;
